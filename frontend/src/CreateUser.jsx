@@ -3,6 +3,7 @@ import axios from 'axios'
 import {useNavigate} from 'react-router-dom'
 
 function CreateUser() {
+    const url="https://mern-crud-backend-8qld.onrender.com"
     const [name, setName]=useState()
     const [email, setEmail]=useState()
     const [age, setAge]=useState()
@@ -10,7 +11,7 @@ function CreateUser() {
 
     const Submit =(e)=>{
         e.preventDefault()
-        axios.post("http://localhost:3001/createUser", {name,email,age})
+        axios.post(url+"/createUser", {name,email,age})
         .then(result =>{
             console.log(result)
             navigate('/')
