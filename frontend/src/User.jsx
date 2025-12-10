@@ -3,6 +3,7 @@ import { useState } from 'react'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 function User() {
+    const url="https://mern-crud-backend-8qld.onrender.com"
     const [users, setUsers]=useState([])
     useEffect(()=>{
         axios.get("http://localhost:3001")
@@ -11,7 +12,7 @@ function User() {
     },[])
 
     const handleDelete = (id)=>{
-        axios.delete("http://localhost:3001/deleteUser/"+id)
+        axios.delete(url+"/deleteUser/"+id)
         .then(res=>{
             console.log(res)
             window.location.reload()
